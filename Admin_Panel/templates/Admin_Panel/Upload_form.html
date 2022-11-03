@@ -1,0 +1,50 @@
+<!-- {% extends 'Admin_Panel/Admin_Panel.html' %}
+{% block content %}
+    <center>
+    <h1 class="display-3" style="background-color:#000000;color:#FFFF99;">Upload Admin_Panels</h1>
+    <form method = 'POST' enctype="multipart/form-data">
+        {% csrf_token %}
+        <table class = 'w-50 table table-light' style="border-radius:10px;background-color:#FFFF99;">
+            {% for field in upload_form %}
+            <tr>
+                <th>{{field.label}}</th>
+                <td>{{ field }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <button type="submit" class="btn btn-lg btn-warning">Submit</button>
+    </form>
+</center>
+{% endblock %} -->
+<!-- 
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign</title>
+<style>
+        div{
+        position : absolute;
+        right : 10px;
+        top : 5px
+        }
+    </style>
+</head>
+<body>
+<div>
+
+
+    </div>
+<H2>Create Daily Progress Report</H2>
+<form action=" " method="post">
+    {% csrf_token %}
+    Work Assigned :
+    <input type="text" name="work" required><br><br>
+    Progress:
+    <textarea rows="5" cols="40" name="progress" required></textarea>
+    <br><br>
+    <input type="submit" value="Submit">
+
+</form>
+</body>
+</html> -->

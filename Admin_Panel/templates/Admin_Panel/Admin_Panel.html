@@ -1,0 +1,411 @@
+{% if messg %}
+<script>
+  alert('{{ messg }}');
+</script>
+{% endif %}
+<!DOCTYPE html>
+<style>
+  .deactivate {
+    padding-right: 3px;
+    cursor: pointer;
+    color: grey;
+  }
+
+  .deactivate_active {
+    padding-right: 3px;
+    cursor: pointer;
+    color: black
+  }
+</style>
+<html>
+<title>User List</title>
+
+<body class="body" style="background-color:#ffffff ; font-size:12px; ">
+  {% include 'Admin_Panel/includes/header.html' %}
+
+  <!-- <div class="card" style="width: 100%"> -->
+  <!-- <img class="card-img-top" src="{{ Admin_Panel.picture.url }}"> -->
+
+
+  <div class="well"
+    style="margin: 0px 20px 30px 20px; border: 14px !important; padding:0px 30 px 10px 30px !important; background-color:#f0f0f0 ">
+
+    <div style="background:#f0f0f0; font-size:large;">User List</div>
+    <hr style="height:2px;border-width:0;color:black;background-color:gray; margin: 3px 0 12px 0">
+
+    <table id="table1" style='padding:5px; border-collapse:collapse'>
+
+      <thead>
+        <tr style="font-size:12px; text-align:center; color:white">
+
+          <th class="card-title ">Name</th>
+          <th class="card-title">Email</th>
+          <th class="card-title">Nickname</th>
+          <th class="card-title">Wallet Balance</th>
+          <th class="card-title">Last Consultation Date</th>
+          <th class="card-title">Last Consultation Advisor</th>
+          <th class="card-title">Last Login Date</th>
+          <th class="card-title">Created Date</th>
+          <th class="card-title">Status</th>
+          <th class="card-title">Actions</th>
+
+
+          <!-- <div class="card-footer bg-transparent border-dark"> -->
+        </tr>
+      </thead>
+      <tbody>
+        {% for Admin_Panel in data_list %}
+        <tr>
+          <td class="card-title ">{{ Admin_Panel.name }}</td>
+          <td class="card-title ">{{ Admin_Panel.email }}</td>
+          <td class="card-title ">{{ Admin_Panel.nick_name }}</td>
+          <td class="card-title ">{{ Admin_Panel.amt }}</td>
+          <td class="card-title ">{{ Admin_Panel.last_consultation_date }}</td>
+          <td class="card-title " id="partnerid">{{ Admin_Panel.last_consultation_partnerid}}</td>
+          <td class="card-title ">{{ Admin_Panel.last_login_date }}</td>
+
+          <td class="card-title ">{{ Admin_Panel.user_create_date }}</td>
+          <td class="card-title ">{{ Admin_Panel.status }}</td>
+          {% csrf_token %}
+          <td class="card-title " style="text-align:center;">
+            {% if Admin_Panel.is_active  %}
+              <span type="button" id="deactive" data-id='{{ Admin_Panel.id }}' data-check_active='{{check_active}}'
+                title="Deactivate" class=" deactivate glyphicon glyphicon-ban-circle"
+                style="padding-right: 3px; cursor:pointer ; color:green;">
+              </span>
+            {% else %}
+              <span type="button" id="deactive" data-id='{{ Admin_Panel.id }}' data-check_active='{{check_active}}'
+              title="Deactivate" class=" deactivate glyphicon glyphicon-ban-circle"
+              style="padding-right: 3px; cursor:pointer ; color:red;">
+              </span>
+            {% endif %}
+            <span type="button" data-id='{{ Admin_Panel.id }}' title="Wallet Detail" class="  wallet open-modal"
+              data-target='myModal' style="cursor: pointer;"><i class="bi bi-wallet2"><svg
+                  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-wallet2"
+                  viewBox="0 0 16 16" style="padding-right: 3px;">
+                  <path
+                    d="M12.136.326A1.5 1.5 0 0 1 14 1.78V3h.5A1.5 1.5 0 0 1 16 4.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 13.5v-9a1.5 1.5 0 0 1 1.432-1.499L12.136.326zM5.562 3H13V1.78a.5.5 0 0 0-.621-.484L5.562 3zM1.5 4a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-13z" />
+                </svg></i></span>
+            <span type="button" data-id='{{ Admin_Panel.id }}' title="Call Detail" class="detail open-modal "
+              data-target='myModal' style="cursor: pointer;"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                height="16" fill="currentColor" class="bi bi-journal-text" viewBox="0 0 16 16">
+                <path
+                  d="M5 10.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z" />
+                <path
+                  d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z" />
+                <path
+                  d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z" />
+              </svg>
+            </span>
+          </td>
+        </tr>
+        <!-- <td class="card-text">{{ Admin_Panel.describe }}</td>
+    <div class="card-footer bg-transparent border-dark">
+    <td class="card-title">{{Admin_Panel.author}}</td> -->
+        <!-- <td><center>
+       <a href="update/{{Admin_Panel.id}}" class="btn btn-warning" id = '{{Admin_Panel.id}}'>edit</a>
+       <a href="delete/{{Admin_Panel.id}}" class="btn btn-danger" id = '{{Admin_Panel.id}}'>delete</a>
+    </center></td> -->
+
+        {% endfor %}
+
+      </tbody>
+    </table>
+
+  </div>
+  <footer
+    style="text-align:center; height:30px; background-color:#0A1C5E; color:white;vertical-align:middle; bottom:0; position:fixed;width:100% ">
+    <span>© All Rights Reserved | Production Dashboard</span>
+  </footer>
+
+
+
+
+  <!-- call detail -->
+  <div class="call-modal-div">
+
+    <div id="call_detail" class="modal fade" role="dialog">
+      <div class="modal-dialog" style="width: 50%;">
+        <div class="modal-content"
+          style=" margin: 0px 20px 0px 20px !important; border: 14px !important ">
+
+          <div class="modal-header" >
+            <h4 class="modal-title">Call Detail</h4>
+          </div>
+          <div class="modal-body" id="calldetail">
+            
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <!-- wallet detail -->
+  <div class="wallet-modal-div" style="">
+
+    <div id="wallet_detail" class="modal fade" role="dialog">
+      <div class="modal-dialog" style="width: 50%;">
+        <div class="modal-content"
+          style=" margin: 0px 20px 0px 20px !important; border: 14px !important ">
+
+          <div class="modal-header">
+            <h4 class="modal-title">Wallet Detail</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body" id="walletdetail">
+            
+            <!-- <table id="table2" class="table table-striped" style='padding:5px; border-collapse:collapse'> -->
+
+            <!-- <thead>
+              <tr style="font-size:12px; text-align:center; color:white">
+  
+                <th class="card-title ">Name</th>
+                <th class="card-title">Partner Name</th>
+                <th class="card-title">Price</th>
+                <th class="card-title">Topic</th>
+                <th class="card-title">Duration</th>
+                <th class="card-title">Call Charges</th>
+                <th class="card-title">End time</th>
+                <th class="card-title">End</th>
+              </tr>
+            </thead>
+  
+  
+            <tbody>
+              {% for detail in detail_list %}
+              <tr>
+                <td class="card-title ">{{detail.from}}</td>
+                <td class="card-title ">{{ detail.to }}</td>
+                <td class="card-title ">{{ detail.callPrice }}</td>
+                <td class="card-title ">{{ detail.topic }}</td>
+                <td class="card-title ">{{ detail.callCharges }}</td>
+                <td class="card-title ">{{ detail.duration }}</td>
+                <td class="card-title ">{{ detail.end_time}}</td>
+                <td class="card-title ">{{ detail.end}}</td>
+  
+              </tr>
+              {% endfor %}
+  
+            </tbody> -->
+            <!-- </table> -->
+
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- <div class="modal-div">
+
+    <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content"
+          style="width: max-content; margin: 0px 20px 0px 20px !important; border: 14px !important ">
+
+          <div class="modal-header">
+            <h4 class="modal-title">Modal Heading</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            {{data }}
+            <table id="table2" class="table table-striped" style='padding:5px; border-collapse:collapse'>
+              <thead>
+                <tr>
+                  <th class="card-title ">Name</th>
+                  <th class="card-title">Partner Name</th>
+                  <th class="card-title">Price</th>
+                  <th class="card-title">Topic</th>
+                  <th class="card-title">Duration</th>
+                  <th class="card-title">Call Charges</th>
+                  <th class="card-title">End time</th>
+                  <th class="card-title">End</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for details in data %}
+                
+                <tr>
+                  <td class="card-title " id="1">{{details.from}}</td>
+                  <td class="card-title " id="2">Hello</td>
+                  <td class="card-title " id="3">Hello</td>
+                  <td class="card-title " id="4">Hello</td>
+                  <td class="card-title " id="5">Hello</td>
+                  <td class="card-title " id="6">Hello</td>
+                  <td class="card-title " id="7">Hello</td>
+                  <td class="card-title " id="8">Hello</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+            <!-- <table id="table2" class="table table-striped" style='padding:5px; border-collapse:collapse'> -->
+
+  <!-- <thead>
+              <tr style="font-size:12px; text-align:center; color:white">
+  
+                <th class="card-title ">Name</th>
+                <th class="card-title">Partner Name</th>
+                <th class="card-title">Price</th>
+                <th class="card-title">Topic</th>
+                <th class="card-title">Duration</th>
+                <th class="card-title">Call Charges</th>
+                <th class="card-title">End time</th>
+                <th class="card-title">End</th>
+              </tr>
+            </thead>
+  
+  
+            <tbody>
+              {% for detail in detail_list %}
+              <tr>
+                <td class="card-title ">{{detail.from}}</td>
+                <td class="card-title ">{{ detail.to }}</td>
+                <td class="card-title ">{{ detail.callPrice }}</td>
+                <td class="card-title ">{{ detail.topic }}</td>
+                <td class="card-title ">{{ detail.callCharges }}</td>
+                <td class="card-title ">{{ detail.duration }}</td>
+                <td class="card-title ">{{ detail.end_time}}</td>
+                <td class="card-title ">{{ detail.end}}</td>
+  
+              </tr>
+              {% endfor %}
+  
+            </tbody> -->
+  <!-- </table>
+
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <!-- edit detail -->
+  
+
+
+  <script>$(document).ready(function () {
+
+
+      $('#table1').DataTable({
+        buttons: [
+          { extend: 'excel', text: 'Download Excel' }
+        ],
+        "scrollY": '100%',
+        "autoWidth": true,
+        "autoHeight": true,
+        sDom: "lBfrtip",
+        "scrollY": '350px',
+
+      });
+
+      $(".detail").click(function () {
+
+        var modalDiv = $("#call-modal-div");
+        var id = $(this).data(id);
+        var csrftoken = '{{ csrf_token }}';
+
+        $.ajax({
+          type: "POST",
+          url: "{% url 'user_call_detail' %}",
+          headers: { 'X-CSRFToken': csrftoken },
+          data: id,
+          success: function (data) {
+            //modalDiv.append(data)
+            $("#calldetail").empty()
+            $("#calldetail").append(data)
+            $("#call_detail").modal();
+            //console.log(data);
+
+          }
+        });
+      });
+      $(".wallet").click(function () {
+
+        var modalDiv = $("#wallet-modal-div");
+        var id = $(this).data(id);
+        var csrftoken = '{{ csrf_token }}';
+
+        $.ajax({
+          type: "POST",
+          url: "{% url 'user_wallet' %}",
+          headers: { 'X-CSRFToken': csrftoken },
+          data: id,
+          success: function (data) {
+            $('#walletdetail').empty()
+            $('#walletdetail').append(data)
+            $("#wallet_detail").modal();
+            console.log(data);
+
+          }
+        });
+      });
+      $(".deactivate").click(function () {
+        var id = $(this).data(id);
+
+        var csrftoken = '{{ csrf_token }}';
+        $.ajax({
+          type: "POST",
+          url: "{% url 'user_inactive' %}",
+          headers: { 'X-CSRFToken': csrftoken },
+          data: id,
+
+          success: function (data) {
+            location.reload();
+
+          }
+        });
+
+      });
+      
+
+      $('#table2').DataTable({
+        buttons: [
+          'excel'
+        ],
+
+        sDom: "lBfrtip",
+
+      });
+      $('#list1 li, #list2 li').on('click', function () {
+        $(".dropdown").addClass('hover');
+      });
+
+    });</script>
+
+
+
+
+</body>
+
+</html>
+
+<!-- 
+data_from_django = {{ detail_list}},
+          widget.init(data_from_django),
+            console.log({{detail_list}}) -->
+<!-- 
+            var id = $(this).attr('data-check_active');
+            var color=document.getElementById("deactive").style.color;
+            if(data-check_active== False)
+                  document.getElementById("deactive").style.color = "red";
+            else
+                  document.getElementById("deactive").style.color = "green"; -->
+<!-- data_from_django = {{ detail_list.topic }},
+          widget.init(data_from_django),
+            console.log({{check_active}})
+                  {{detail_list}} -->

@@ -1,0 +1,46 @@
+<style>
+
+</style>
+<table id="table2" class="table table-striped" style='padding:5px; border-collapse:collapse; '>
+  <thead style="color:white; text-align:center;">
+    <tr >
+      <th class="card-title ">Name</th>
+      <th class="card-title">Partner Name</th>
+      <th class="card-title">Call Charges</th>
+      <th class="card-title">Topic</th>
+      <th class="card-title">Duration</th>
+      <th class="card-title">Partner Fee</th>
+      <!-- <th class="card-title">End time</th> -->
+      <th class="card-title">Call End Time</th>
+    </tr>
+  </thead>
+  <tbody >
+    {% for detail in detail_list %}
+
+    <tr>
+      <td class="card-title ">{{detail.from}}</td>
+      <td class="card-title ">{{ detail.to }}</td>
+      <td class="card-title ">{{ detail.callCharges }}</td>
+      <td class="card-title ">{{ detail.topic }}</td>
+      <td class="card-title ">{{ detail.duration }}</td>
+      <td class="card-title ">{{ detail.callPrice }}</td>
+
+      <!-- <td class="card-title ">{{ detail.end_time}}</td> -->
+      <td class="card-title ">{{ detail.end}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<script>
+  $(document).ready(function() {
+
+  $('#table2').DataTable({
+    buttons: [
+      'excel'
+    ],
+    
+    sDom: "lBfrtip",
+
+  });
+});
+</script>

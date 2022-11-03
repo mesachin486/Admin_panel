@@ -1,0 +1,38 @@
+<table id="table3" class="table table-striped" style='padding:5px; border-collapse:collapse'>
+    <thead style="color:white; text-align:center;">
+      <tr>
+        <th class="card-title ">Amount</th>
+        <th class="card-title">Happiness Code name</th>
+        <th class="card-title">Date</th>
+        <th class="card-title">Status</th>
+        <th class="card-title">Transiction ID</th>
+        <th class="card-title">Description</th>
+
+      </tr>
+    </thead>
+    <tbody style="overflow-y:scroll;">
+      {% for details in wallet_detail %}
+
+      <tr>
+        <td class="card-title " id="1">{{details.amt}}</td>
+        <td class="card-title " id="2">{{details.coupon_name}}</td>
+        <td class="card-title " id="3">{{details.data}}</td>
+        <td class="card-title " id="4">{{details.status}}</td>
+        <td class="card-title " id="5">{{details.trans_id}}</td>
+        <td class="card-title " id="6">{{details.desc}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <script>      
+      $('#table3').DataTable({
+    buttons: [
+      'excel'
+    ],
+
+    sDom: "lBfrtip",
+
+  });
+  </script>
+  

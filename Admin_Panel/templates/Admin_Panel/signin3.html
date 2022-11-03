@@ -1,0 +1,87 @@
+{% block content %}
+<style>
+    div{
+        position: absolute;
+        top: -20px;
+        left: -20px;
+        right: -40px;
+        bottom: -40px;
+        
+        width: auto;
+        height: auto;
+        background-size: cover;
+        z-index: 0;
+    }
+    div img{
+        width: 100%;
+    }
+    form{
+        font-size: 28px;
+        align-items: center;
+    }
+    form input[type=email]{
+        width: 250px;
+        height: 30px;
+        background: transparent;
+        border: 1px solid rgba(255,255,255,0.6);
+        border-radius: 2px;
+        color: #fff;
+        font-family: 'Exo', sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        padding: 4px;
+    }
+    form input[type=password]{
+        width: 250px;
+        height: 30px;
+        background: transparent;
+        border: 1px solid rgba(255,255,255,0.6);
+        border-radius: 2px;
+        color: #fff;
+        font-family: 'Exo', sans-serif;
+        font-size: 24px;
+        font-weight: 400;
+        padding: 4px;
+        margin-top: 10px;
+        align-self: center;
+    }
+    
+    form input[type=submit]{
+        width: 260px;
+        height: 35px;
+        background: #fff;
+        border: 1px solid #fff;
+        cursor: pointer;
+        border-radius: 2px;
+        color: #a18d6c;
+        font-family: 'Exo', sans-serif;
+        font-size: 24px;
+        font-weight: 400;
+        padding: 6px;
+        margin-top: 10px;
+    }
+</style>
+    <center>
+    <img src=" http://127.0.0.1:5500/static/admin/img/DATABASE LOGIN PAGE BG.jpg" alt="Logo" style="height:50px; margin:5px; padding:2px;"/>
+    <div>
+    <h1 class="display-3" style="background-color:#000000;color:#FFFF99;">LOGIN</h1>
+    <form action= "/index/" method="POST">
+        {% csrf_token %}
+        Email:
+        <input type="email" name="email"><br>
+        Password:
+        <input type="password" name="pass" ><br>
+        <input type="submit" value="SUBMIT">
+    </form>
+    </div>
+</center>
+{% endblock %}
+
+
+
+
+
+def detail(request):
+    id=request.POST.get("id")
+    print(id)
+    return redirect('userlist')

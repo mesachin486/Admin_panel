@@ -1,0 +1,217 @@
+{% load static %}
+
+<style>
+	
+@import url(https://fonts.googleapis.com/css?family=Exo:100,200,400);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:700,400,300);
+
+body{
+	margin: 0;
+	padding: 0;
+	background: #fff;
+
+	color: #fff;
+	font-family: Arial;
+	font-size: 12px;
+	background-image: url({% static "img/logo.png" %});
+}
+
+.body{
+    display: block;
+	position: absolute;
+	top: -20px;
+	left: -20px;
+	right: -40px;
+	bottom: -40px;
+	width: auto;
+	height: auto;
+	background-image: url("{% static 'img/DATABASE LOGIN PAGE BG.jpg'%}");
+	background-size: cover;
+	z-index: 0;
+}
+
+.grad{
+	position: absolute;
+	top: -20px;
+	left: -20px;
+	right: -40px;
+	bottom: -40px;
+	width: auto;
+	height: auto;
+	
+	z-index: 1;
+	opacity: 0.7;
+}
+
+.header{
+	position: absolute;
+    text-align: center;
+    top: 20%;
+    bottom: 25%;
+}
+
+.header div{
+	float: left;
+	color: #fff;
+	font-family: 'Exo', sans-serif;
+	font-size: 35px;
+	font-weight: 200;
+}
+
+.header div span{
+	color: #44257c !important;
+	font-weight: bold;
+}
+.leftbanner{
+    width:50%;
+    height:100%;
+}
+.Rightbanner{
+    width:50%;
+    height:100%;
+    text-align: center;
+    position: relative;
+}
+.leftbanner img{
+    width:50%;
+    float: right;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    box-shadow: 0 0px 30px 0 rgb(0 0 0 / 49%), 0 6px 20px 0 rgb(0 0 0 / 0%);
+}
+.rightbanner img{
+    width:50%;
+    float: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 0px 30px 0 rgb(0 0 0 / 61%), 0 6px 20px 0 rgb(0 0 0 / 0%);
+}
+
+
+.login{
+	position: absolute;
+	top: calc(40% - 75px);
+	left: calc(28% - 50px);
+	height: 150px;
+	width: 350px;
+	padding: 10px;
+	z-index: 2;
+}
+.login input[type=email]{
+	width: 250px;
+	height: 30px;
+	background: transparent;
+	border: 1px solid #44257c;
+	border-radius: 2px;
+	color: #44257c;
+	font-family: 'Exo', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 4px;
+}
+
+.login input[type=password]{
+	width: 250px;
+	height: 30px;
+	background: transparent;
+	border: 1px solid #44257c;
+	border-radius: 2px;
+	color: #44257c;
+	font-family: 'Exo', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 4px;
+	margin-top: 10px;
+}
+
+.login input[type=submit]{
+	width: 260px;
+	height: 35px;
+	background: #44257c;
+	border: 1px solid #44257c;
+	cursor: pointer;
+	border-radius: 2px;
+	color: #ffffff;
+	font-family: 'Exo', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 6px;
+	margin-top: 10px;
+}
+
+.login input[type=submit]:hover{
+	opacity: 0.8;
+}
+
+.login input[type=submit]:active{
+	opacity: 0.6;
+}
+
+.login input[type=email]:focus{
+	outline: none;
+	border: 1px solid #44257c;
+}
+
+.login input[type=password]:focus{
+	outline: none;
+	border: 1px solid #44257c;
+}
+
+.login input[type=submit]:focus{
+	outline: none;
+}
+
+::-webkit-input-placeholder{
+   color: #44257c;
+}
+
+::-moz-input-placeholder{
+   color: #44257c;
+}
+.parent{
+    height: fit-content;
+}
+</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin SignIn</title>
+    <!-- <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}"/> -->
+    
+</head>
+<body >
+	{% if messg %}
+<script>
+    alert('{{ messg }}');
+</script>
+{% endif %}
+    <div class="body"></div>
+    <div class="grad"></div>
+    <div class="parent">
+    <div class="header">
+        <div class="leftbanner" >
+            <img src="{% static 'img/Left BAnner.png' %}" alt="LeftBanner">
+			
+			<form class="leftbanner login" action= "/index/" method="POST">
+				<span>Admin SignIn</span><br><br>
+				{% csrf_token %}
+				<!-- <span>Email:</span> -->
+				<input type="email" placeholder="Email" name="email"><br>
+				<!-- <span>Password:</span> -->
+				<input type="password" placeholder="Password" name="pass">
+				<input type="submit" value="SignIn">
+			</form>
+        </div>
+    
+        <div class="rightbanner" >
+            <img src="{% static 'img/Right BAnner.png' %}" alt="RightBanner">
+        </div>
+    </div>
+        
+    </div>
+    
+</body>
+</html>

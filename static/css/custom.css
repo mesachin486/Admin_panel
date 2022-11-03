@@ -1,0 +1,194 @@
+  
+  
+  
+  
+  table.dataTable tbody td {
+    padding: 5px !important;
+  }
+  table.dataTable tbody th {
+    color: white;
+  }
+  .dataTable tbody tr:nth-child(even) {
+    background: #e8e8e8;
+  }
+
+  .dataTable thead {
+    background: #0A1C5E;
+  }
+
+  td,
+  th {
+    border: 1px solid #e8e8e8
+  }
+ 
+
+  .dt-buttons {
+    text-align: center !important;
+    float: right;
+    margin-left: 30px;
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0 !important;
+    padding: 0;
+    overflow: hidden;
+
+  }
+
+  li {
+    float: left;
+    font-size: samll;
+    width: 100% !important;
+  }
+
+  li a {
+    display: block;
+    color: white;
+    padding: 5px;
+    text-align: left !important;
+    text-decoration: none;
+    width: 100% !important;
+  }
+
+  /* Change the link color to #111 (black) on hover */
+  li a:hover {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0) !important;
+    width: 100% !important;
+  }
+
+  li :active {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0) !important;
+    width: 100% !important;
+  }
+
+  .hide {
+    visibility: hidden;
+  }
+
+  .dropbtn {
+    background-color: #0A1C5E;
+    color: rgb(255, 255, 255);
+    margin-left: 2px;
+    padding: 18px;
+    width: 150px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #0A1C5E;
+    min-width: 153px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: black;
+    padding: 10px 12px;
+    text-decoration: none;
+    display: block;
+  }
+
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {
+    background-color: #f1f1f1;
+
+  }
+
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  /* Change the background color of the dropdown button when the dropdown content is shown */
+  .dropdown:hover .dropbtn {
+    background-color: #ffffff;
+    color: black;
+  }
+  .dropdown:active .dropbtn {
+    background-color: #ffffff;
+    color: black;
+  }
+
+  .btn-info {
+    background-color: transparent !important;
+  }
+  .logout_btn
+  {
+    cursor: pointer;
+    color:#ffffff; 
+    float:right ; 
+    font-size:large;
+    color:rgb(0, 0, 0); 
+    margin:15px 25px 0px 0px;
+    
+  }
+  .red {
+    color: red;
+  }
+
+  .bg {
+    background-image: url("{% static 'img/logo.png'%}");
+    height: 100%;
+    background-repeat: no-repeat;
+    align-items: center;
+    text-align: center;
+  }
+
+  .coupon_name
+{
+    padding: 10px 2000px;
+
+
+}
+.coupon_field{
+    text-align: left;
+    max-width: max-content;
+}
+.coupon_text{
+    text-align: start;
+    font-weight: bold;
+    font-size: large;
+    
+}
+.coupon_amount
+{
+    padding: 10px 50px;
+
+
+}
+.coupon_counter
+{
+    padding: 10px 50px;
+
+
+}
+.coupon_expiry
+{
+    padding: 10px 50px;
+
+
+}
+.deactivate{
+  padding-right: 3px; 
+  cursor:pointer ;
+  color:grey;
+}
+.deactivate_active{
+  padding-right: 3px;
+  cursor:pointer;
+  color:black
+}

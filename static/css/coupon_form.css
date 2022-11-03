@@ -1,0 +1,34 @@
+.coupon_name
+{
+    padding: 10px 2000px;
+
+
+}
+.coupon_field{
+    text-align: left;
+    max-width: max-content;
+}
+.coupon_text{
+    text-align: start;
+    font-weight: bold;
+    font-size: large;
+    
+}
+.coupon_amount
+{
+    padding: 10px 50px;
+
+
+}
+.coupon_counter
+{
+    padding: 10px 50px;
+
+
+}
+.coupon_expiry
+{
+    padding: 10px 50px;
+
+
+}

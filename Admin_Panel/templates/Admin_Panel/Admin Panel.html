@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<!-- saved from url=(0031)http://127.0.0.1:8000/userlist/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>
+    table.dataTable tbody td {
+        padding: 5px !important;
+    }
+    .dataTable tbody tr:nth-child(even){
+        background: #e8e8e8;
+    }
+    .dataTable thead{
+        background: #387694;
+    }
+    td,th{
+        border: 1px solid #e8e8e8
+    }
+    .dt-buttons {
+        text-align: center !important;
+    }
+    buttons
+</style>
+
+    <title>Admin Panel</title>
+    <script src="./Admin_Panels App_files/jquery-3.5.1.js.download"></script>
+    <link rel="stylesheet" href="./Admin_Panels App_files/bootstrap.min.css">
+    <link rel="stylesheet" href="./Admin_Panels App_files/jquery.dataTables.min.css">
+    <script type="text/javascript" charset="utf8" src="./Admin_Panels App_files/jquery.dataTables.min.js.download"></script>
+    <script type="text/javascript" charset="utf8" src="./Admin_Panels App_files/dataTables.buttons.min.js.download"></script>
+    <script type="text/javascript" charset="utf8" src="./Admin_Panels App_files/jszip.min.js.download"></script>
+    <script type="text/javascript" charset="utf8" src="./Admin_Panels App_files/pdfmake.min.js.download"></script>
+    <script type="text/javascript" charset="utf8" src="./Admin_Panels App_files/vfs_fonts.js.download"></script>
+    <script type="text/javascript" charset="utf8" src="./Admin_Panels App_files/buttons.html5.min.js.download"></script>
+    <script type="text/javascript" charset="utf8" src="./Admin_Panels App_files/buttons.print.min.js.download"></script>
+
+</head>
+<body style="background-color:#f0f0f0;; font-size:12px; ">
+<nav class="navbar navbar-light" style="background-color:#387694;">
+    <a href="http://127.0.0.1:8000/userlist/" style="background-color:#ffffff;color:#000000;border-width:10px;border-color:#ffffff;border-style:solid;border-spacing:30px;border-radius: 5px;">User List</a>
+    <a href="http://127.0.0.1:8000/patnerlist/" style="background-color:#ffffff;color:#000000;border-width:10px;border-color:#ffffff;border-style:solid;border-spacing:30px;border-radius: 5px;">Partner List</a>
+</nav>
+<br>
+    
+    <!-- <div class="card" style="width: 100%"> -->
+  <!-- <img class="card-img-top" src=""> -->
+  
+  
+  <div style="margin: 20px 20px 0px 20px; border: 14px !important ">
+   
+    <div id="header_wrapper" class="dataTables_wrapper no-footer"><div class="dataTables_length" id="header_length"><label>Show <select name="header_length" aria-controls="header" class=""><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div><div class="dt-buttons"> <button class="dt-button buttons-csv buttons-html5" tabindex="0" aria-controls="header" type="button"><span>CSV</span></button> <button class="dt-button buttons-excel buttons-html5" tabindex="0" aria-controls="header" type="button"><span>Excel</span></button> </div><div id="header_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="header"></label></div><div class="dataTables_scroll"><div class="dataTables_scrollHead" style="overflow: hidden; position: relative; border: 0px; width: 100%;"><div class="dataTables_scrollHeadInner" style="box-sizing: content-box; width: 1479.2px; padding-right: 0px;"><table style="padding: 5px; border-collapse: collapse; margin-left: 0px; width: 1479.2px;" class="dataTable no-footer"><thead>
+        <tr style="font-size:12px; text-align:center; color:white"><th class="card-title sorting sorting_asc" tabindex="0" aria-controls="header" rowspan="1" colspan="1" style="width: 47.5125px;" aria-sort="ascending" aria-label="Name: activate to sort column descending">Name</th><th class="card-title sorting" tabindex="0" aria-controls="header" rowspan="1" colspan="1" style="width: 121.488px;" aria-label="Email: activate to sort column ascending">Email</th><th class="card-title sorting" tabindex="0" aria-controls="header" rowspan="1" colspan="1" style="width: 56.95px;" aria-label="Nickname: activate to sort column ascending">Nickname</th><th class="card-title sorting" tabindex="0" aria-controls="header" rowspan="1" colspan="1" style="width: 79.2375px;" aria-label="Wallet Balance: activate to sort column ascending">Wallet Balance</th><th class="card-title sorting" tabindex="0" aria-controls="header" rowspan="1" colspan="1" style="width: 121.738px;" aria-label="Last Consultation date: activate to sort column ascending">Last Consultation date</th><th class="card-title sorting" tabindex="0" aria-controls="header" rowspan="1" colspan="1" style="width: 82.6125px;" aria-label="Last Login Date: activate to sort column ascending">Last Login Date</th><th class="card-title sorting" tabindex="0" aria-controls="header" rowspan="1" colspan="1" style="width: 227.413px;" aria-label="Last consultation Partnerid: activate to sort column ascending">Last consultation Partnerid</th><th class="card-title sorting" tabindex="0" aria-controls="header" rowspan="1" colspan="1" style="width: 89.4px;" aria-label="User Create Date: activate to sort column ascending">User Create Date</th><th class="card-title sorting" tabindex="0" aria-controls="header" rowspan="1" colspan="1" style="width: 34.975px;" aria-label="Status: activate to sort column ascending">Status</th><th class="card-title sorting" tabindex="0" aria-controls="header" rowspan="1" colspan="1" style="width: 230.075px;" aria-label="Uid: activate to sort column ascending">Uid</th></tr>
+    </thead></table></div></div><div class="dataTables_scrollBody" style="position: relative; overflow: auto; max-height: 470px; height: 470px; width: 100%;"><table id="header" style="padding: 5px; border-collapse: collapse; width: 100%;" class="dataTable no-footer" aria-describedby="header_info"><thead>
+        <tr style="font-size: 12px; text-align: center; color: white; height: 0px;"><th class="card-title sorting" aria-controls="header" rowspan="1" colspan="1" style="width: 47.5125px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;"><div class="dataTables_sizing" style="height: 0px; overflow: hidden;">Name</div></th><th class="card-title sorting" aria-controls="header" rowspan="1" colspan="1" style="width: 121.488px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;"><div class="dataTables_sizing" style="height: 0px; overflow: hidden;">Email</div></th><th class="card-title sorting" aria-controls="header" rowspan="1" colspan="1" style="width: 56.95px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;"><div class="dataTables_sizing" style="height: 0px; overflow: hidden;">Nickname</div></th><th class="card-title sorting" aria-controls="header" rowspan="1" colspan="1" style="width: 79.2375px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;"><div class="dataTables_sizing" style="height: 0px; overflow: hidden;">Wallet Balance</div></th><th class="card-title sorting" aria-controls="header" rowspan="1" colspan="1" style="width: 121.738px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;"><div class="dataTables_sizing" style="height: 0px; overflow: hidden;">Last Consultation date</div></th><th class="card-title sorting" aria-controls="header" rowspan="1" colspan="1" style="width: 82.6125px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;"><div class="dataTables_sizing" style="height: 0px; overflow: hidden;">Last Login Date</div></th><th class="card-title sorting" aria-controls="header" rowspan="1" colspan="1" style="width: 227.413px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;"><div class="dataTables_sizing" style="height: 0px; overflow: hidden;">Last consultation Partnerid</div></th><th class="card-title sorting" aria-controls="header" rowspan="1" colspan="1" style="width: 89.4px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;"><div class="dataTables_sizing" style="height: 0px; overflow: hidden;">User Create Date</div></th><th class="card-title sorting" aria-controls="header" rowspan="1" colspan="1" style="width: 34.975px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;"><div class="dataTables_sizing" style="height: 0px; overflow: hidden;">Status</div></th><th class="card-title sorting" aria-controls="header" rowspan="1" colspan="1" style="width: 230.075px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;"><div class="dataTables_sizing" style="height: 0px; overflow: hidden;">Uid</div></th></tr>
+    </thead>
+
+        
+    <tbody>
+          
+        
+    <!-- <td class="card-text"></td>
+    <div class="card-footer bg-transparent border-dark">
+    <td class="card-title"></td> -->
+    <!-- <td><center>
+       <a href="update/" class="btn btn-warning" id = ''>edit</a>
+       <a href="delete/" class="btn btn-danger" id = ''>delete</a>
+    </center></td> -->
+    
+      
+        
+    <!-- <td class="card-text"></td>
+    <div class="card-footer bg-transparent border-dark">
+    <td class="card-title"></td> -->
+    <!-- <td><center>
+       <a href="update/" class="btn btn-warning" id = ''>edit</a>
+       <a href="delete/" class="btn btn-danger" id = ''>delete</a>
+    </center></td> -->
+    
+      
+        
+    <!-- <td class="card-text"></td>
+    <div class="card-footer bg-transparent border-dark">
+    <td class="card-title"></td> -->
+    <!-- <td><center>
+       <a href="update/" class="btn btn-warning" id = ''>edit</a>
+       <a href="delete/" class="btn btn-danger" id = ''>delete</a>
+    </center></td> -->
+    
+      
+        
+    <!-- <td class="card-text"></td>
+    <div class="card-footer bg-transparent border-dark">
+    <td class="card-title"></td> -->
+    <!-- <td><center>
+       <a href="update/" class="btn btn-warning" id = ''>edit</a>
+       <a href="delete/" class="btn btn-danger" id = ''>delete</a>
+    </center></td> -->
+    
+      
+        
+    <!-- <td class="card-text"></td>
+    <div class="card-footer bg-transparent border-dark">
+    <td class="card-title"></td> -->
+    <!-- <td><center>
+       <a href="update/" class="btn btn-warning" id = ''>edit</a>
+       <a href="delete/" class="btn btn-danger" id = ''>delete</a>
+    </center></td> -->
+    
+      
+        
+    <!-- <td class="card-text"></td>
+    <div class="card-footer bg-transparent border-dark">
+    <td class="card-title"></td> -->
+    <!-- <td><center>
+       <a href="update/" class="btn btn-warning" id = ''>edit</a>
+       <a href="delete/" class="btn btn-danger" id = ''>delete</a>
+    </center></td> -->
+    
+      
+        
+    <!-- <td class="card-text"></td>
+    <div class="card-footer bg-transparent border-dark">
+    <td class="card-title"></td> -->
+    <!-- <td><center>
+       <a href="update/" class="btn btn-warning" id = ''>edit</a>
+       <a href="delete/" class="btn btn-danger" id = ''>delete</a>
+    </center></td> -->
+    
+      
+        
+    <!-- <td class="card-text"></td>
+    <div class="card-footer bg-transparent border-dark">
+    <td class="card-title"></td> -->
+    <!-- <td><center>
+       <a href="update/" class="btn btn-warning" id = ''>edit</a>
+       <a href="delete/" class="btn btn-danger" id = ''>delete</a>
+    </center></td> -->
+    
+      
+        
+    <!-- <td class="card-text"></td>
+    <div class="card-footer bg-transparent border-dark">
+    <td class="card-title"></td> -->
+    <!-- <td><center>
+       <a href="update/" class="btn btn-warning" id = ''>edit</a>
+       <a href="delete/" class="btn btn-danger" id = ''>delete</a>
+    </center></td> -->
+    
+      
+        
+    <!-- <td class="card-text"></td>
+    <div class="card-footer bg-transparent border-dark">
+    <td class="card-title"></td> -->
+    <!-- <td><center>
+       <a href="update/" class="btn btn-warning" id = ''>edit</a>
+       <a href="delete/" class="btn btn-danger" id = ''>delete</a>
+    </center></td> -->
+    
+    
+<tr class="odd">
+    <td class="card-title sorting_1">Deepak Rajput</td>
+    <td class="card-title ">dj1995cool@gmail.com</td>
+    <td class="card-title ">deep</td>
+    <td class="card-title ">100.0</td>
+    <td class="card-title ">14/9/2021 06:54:38</td>
+    <td class="card-title ">15/9/2021 11:25:30</td>
+    <td class="card-title ">roIvUhEhelP3KoVd0gfTv5opouh1$sachin agarwal</td>
+    <td class="card-title "></td>
+    <td class="card-title ">Active</td>
+    <td class="card-title ">aNl6OpEk00aHmPTELbD6W9JvXBG3$Deepak Rajput</td>
+</tr><tr class="even">
+    <td class="card-title sorting_1">jaya mathur</td>
+    <td class="card-title ">jaya.mathur133@gmail.com</td>
+    <td class="card-title ">sa</td>
+    <td class="card-title ">100.0</td>
+    <td class="card-title ">14/9/2021 05:31:00</td>
+    <td class="card-title ">16/9/2021 07:12:38</td>
+    <td class="card-title ">roIvUhEhelP3KoVd0gfTv5opouh1$sachin agarwal</td>
+    <td class="card-title "></td>
+    <td class="card-title ">Active</td>
+    <td class="card-title ">aRaPOIxaD9QxVi6P5tyjwzEu3GF2$jaya mathur</td>
+</tr><tr class="odd">
+    <td class="card-title sorting_1">Jaya Mathur</td>
+    <td class="card-title ">jaya.mathur@mobifly.in</td>
+    <td class="card-title ">JM</td>
+    <td class="card-title ">100.0</td>
+    <td class="card-title ">17/9/2021 01:21:47</td>
+    <td class="card-title ">17/9/2021 01:20:11</td>
+    <td class="card-title ">wmhPBLr9yaWY5A9IyYIujri2jeN2$Deepak Rajput</td>
+    <td class="card-title "></td>
+    <td class="card-title ">Active</td>
+    <td class="card-title ">jCxdzOM7RWffCOurq06V1GdLfTW2$Jaya Mathur</td>
+</tr><tr class="even">
+    <td class="card-title sorting_1">mobifly</td>
+    <td class="card-title ">ashish@mobifly.in</td>
+    <td class="card-title ">9090</td>
+    <td class="card-title ">100.0</td>
+    <td class="card-title "></td>
+    <td class="card-title ">16/9/2021 07:11:00</td>
+    <td class="card-title "></td>
+    <td class="card-title "></td>
+    <td class="card-title ">Active</td>
+    <td class="card-title ">T4a7F3HFcPYsfsfuwpc5NJEv4Zf2$mobifly</td>
+</tr><tr class="odd">
+    <td class="card-title sorting_1">prakash rathod</td>
+    <td class="card-title ">rathodp284@gmail.com</td>
+    <td class="card-title ">sparker</td>
+    <td class="card-title ">100.0</td>
+    <td class="card-title ">17/9/2021 12:27:34</td>
+    <td class="card-title ">17/9/2021 12:59:21</td>
+    <td class="card-title ">SSPzBQys96cOaDEp2lTbBEaYiJq1$Sunny Makwana</td>
+    <td class="card-title "></td>
+    <td class="card-title ">Active</td>
+    <td class="card-title ">VtjyLtUlJabtXPKdhXY9SNmsRkO2$prakash rathod</td>
+</tr><tr class="even">
+    <td class="card-title sorting_1">Prakash Rathod</td>
+    <td class="card-title ">sonaliv846@gmail.com</td>
+    <td class="card-title "></td>
+    <td class="card-title ">100.0</td>
+    <td class="card-title "></td>
+    <td class="card-title "></td>
+    <td class="card-title "></td>
+    <td class="card-title "></td>
+    <td class="card-title ">Active</td>
+    <td class="card-title ">aBtYKEflomR3sZ5yQiSqXJDMpXJ2$Prakash Rathod</td>
+</tr><tr class="odd">
+    <td class="card-title sorting_1">sachin agarwal</td>
+    <td class="card-title ">mesachin486@gmail.com</td>
+    <td class="card-title ">SA</td>
+    <td class="card-title ">100.0</td>
+    <td class="card-title ">17/9/2021 12:06:32</td>
+    <td class="card-title ">17/9/2021 12:55:14</td>
+    <td class="card-title ">wmhPBLr9yaWY5A9IyYIujri2jeN2$Deepak Rajput</td>
+    <td class="card-title "></td>
+    <td class="card-title ">Active</td>
+    <td class="card-title ">pL3w0LXUAgQ0d33MBumQNBHzuAZ2$sachin agarwal</td>
+</tr><tr class="even">
+    <td class="card-title sorting_1">sachin agarwal</td>
+    <td class="card-title ">mesachin486@gmail.com</td>
+    <td class="card-title ">sac</td>
+    <td class="card-title ">100.0</td>
+    <td class="card-title "></td>
+    <td class="card-title "></td>
+    <td class="card-title "></td>
+    <td class="card-title "></td>
+    <td class="card-title ">Active</td>
+    <td class="card-title ">roIvUhEhelP3KoVd0gfTv5opouh1$sachin agarwal</td>
+</tr><tr class="odd">
+    <td class="card-title sorting_1">Ujjaval Vashist</td>
+    <td class="card-title ">ujjaval.work@gmail.com</td>
+    <td class="card-title ">uv</td>
+    <td class="card-title ">100.0</td>
+    <td class="card-title ">17/9/2021 01:17:21</td>
+    <td class="card-title ">17/9/2021 12:52:06</td>
+    <td class="card-title ">wmhPBLr9yaWY5A9IyYIujri2jeN2$Deepak Rajput</td>
+    <td class="card-title "></td>
+    <td class="card-title ">Active</td>
+    <td class="card-title ">n6Yzyd8NfGXe8rIvFBQ1rgZjKZx2$Ujjaval Vashist</td>
+</tr><tr class="even">
+    <td class="card-title sorting_1">Vicky Longadge</td>
+    <td class="card-title ">vicky.longadge@mobifly.in</td>
+    <td class="card-title ">vicky</td>
+    <td class="card-title ">100.0</td>
+    <td class="card-title ">16/9/2021 08:03:47</td>
+    <td class="card-title ">16/9/2021 07:10:28</td>
+    <td class="card-title ">n6Yzyd8NfGXe8rIvFBQ1rgZjKZx2$Ujjaval Vashist</td>
+    <td class="card-title "></td>
+    <td class="card-title ">Active</td>
+    <td class="card-title ">pSpcSQgsyNa82xCCoFEyAFuNUFw2$Vicky Longadge</td>
+</tr></tbody>
+    </table></div></div><div class="dataTables_info" id="header_info" role="status" aria-live="polite">Showing 1 to 10 of 10 entries</div><div class="dataTables_paginate paging_simple_numbers" id="header_paginate"><a class="paginate_button previous disabled" aria-controls="header" data-dt-idx="0" tabindex="-1" id="header_previous">Previous</a><span><a class="paginate_button current" aria-controls="header" data-dt-idx="1" tabindex="0">1</a></span><a class="paginate_button next disabled" aria-controls="header" data-dt-idx="2" tabindex="-1" id="header_next">Next</a></div></div>
+    </div>
+  
+<script>$(document).ready( function () {
+    $('#header').DataTable({
+
+    "scrollY":'100%',
+    "autoWidth": true,
+    sDom: "lBfrtip",
+    "scrollY":'470px',
+    buttons: [
+            'csv', 'excel'
+        ]
+    });
+} );</script>
+
+
+
+</body></html>

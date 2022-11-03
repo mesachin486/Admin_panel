@@ -1,0 +1,97 @@
+{% if messg %}
+<script>
+    alert('{{ messg }}');
+</script>
+{% endif %}
+<!DOCTYPE html>
+
+<html>
+<title>Missed Calls</title>
+<body style="background-color:#ffffff ; font-size:12px; ">
+{% include 'Admin_Panel/includes/header.html' %}
+
+<!-- <div class="card" style="width: 100%"> -->
+<!-- <img class="card-img-top" src="{{ Admin_Panel.picture.url }}"> -->
+
+<div class="well"
+  style="margin: 0px 20px 30px 20px; border: 14px !important; padding:0px 30 px 10px 30px !important; background-color:#f0f0f0 ">
+
+  <div style="background:#f0f0f0; font-size:large;">Missed Calls</div>
+  <hr style="height:2px;border-width:0;color:black;background-color:gray; margin: 3px 0 12px 0">
+
+  <table id="table1" style='padding:5px; border-collapse:collapse'>
+
+    <thead>
+      <tr style="font-size:12px; text-align:center; color:white">
+
+        <th class="card-title ">Name</th>
+        <th class="card-title">Advisor Name</th>
+        <th class="card-title">Advisor Topic</th>
+        <th class="card-title">Call Time</th>
+        <th class="card-title">Call Type</th>
+
+
+
+        <!-- <div class="card-footer bg-transparent border-dark"> -->
+      </tr>
+    </thead>
+    <tbody>
+      {% for Admin_Panel in data_list %}
+      <tr>
+        <td class="card-title ">{{ Admin_Panel.name }}</td>
+        <td class="card-title ">{{ Admin_Panel.partnername }}</td>
+        <td class="card-title ">{{ Admin_Panel.topic }}</td>
+        <td class="card-title ">{{ Admin_Panel.time }}</td>
+        <td class="card-title ">{{ Admin_Panel.calltype }}</td>
+      </tr>
+      <!-- <td class="card-text">{{ Admin_Panel.describe }}</td>
+  <div class="card-footer bg-transparent border-dark">
+  <td class="card-title">{{Admin_Panel.author}}</td> -->
+      <!-- <td><center>
+     <a href="update/{{Admin_Panel.id}}" class="btn btn-warning" id = '{{Admin_Panel.id}}'>edit</a>
+     <a href="delete/{{Admin_Panel.id}}" class="btn btn-danger" id = '{{Admin_Panel.id}}'>delete</a>
+  </center></td> -->
+
+      {% endfor %}
+
+    </tbody>
+  </table>
+
+</div>
+<footer
+  style="text-align:center; height:30px; background-color:#0A1C5E; color:white;vertical-align:middle; bottom:0; position:fixed;width:100% ">
+  <span>© All Rights Reserved | Production Dashboard</span>
+</footer>
+
+
+<script>$(document).ready(function () {
+    $('#table1').DataTable({
+      buttons: [
+        { extend: 'excel', text: 'Download Excel' }
+      ],
+      "scrollY": '100%',
+      "autoWidth": true,
+      "autoHeight": true,
+      sDom: "lBfrtip",
+      "scrollY": '350px',
+
+    });
+
+   
+    $('#table2').DataTable({
+      buttons: [
+        'excel'
+      ],
+
+      sDom: "lBfrtip",
+
+    });
+    $('#list1 li, #list2 li').on('click', function () {
+        $(".dropdown").addClass('hover');
+    });
+
+  });</script>
+
+</body>
+
+</html>

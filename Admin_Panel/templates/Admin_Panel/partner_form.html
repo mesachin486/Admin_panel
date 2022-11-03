@@ -1,0 +1,193 @@
+<style>
+.form-group {
+    /* margin-bottom: -135
+px
+; */
+    margin-top: 16px
+;
+}
+.form-group label{
+    font-size: 16px;
+}
+.form-group div input,select{
+    width:70%;
+    padding: 5px 5px 5px 5px;
+}
+.form-group div textarea{
+    width:70%;
+    padding: 5px 5px 5px 5px;
+}
+</style>
+<div class="edit_content" style="overflow-y: 10%;">
+<div class="" style="text-align: center;">
+    <img src="{{detail.ProfilePic}}" alt="Profile Picture" style="height: 150px; width:150px">
+</div>
+
+<div class="col-md-12" style="display: none;">
+    <div class="form-group">
+        <label class="col-md-6" for="coupon_id_text">ID<em class="red">*</em></label>
+        <div class="col-md-6">
+            <input id="coupon_name_field" value="{{detail.id}}" type="text" name="id" required>
+        </div>
+    </div>
+</div><br><br>
+
+
+<div class="col-md-12">
+    <div class="form-group">
+        <label class="col-md-6" for="coupon_name_text">Name<em class="red">*</em></label>
+        <div class="col-md-6">
+            <input id="coupon_name_field" value="{{detail.name}}" type="text" name="name" minlength='6' maxlength="24" required>
+        </div>
+    </div>
+</div><br><br>
+
+<div class="col-md-12">
+    <div class="form-group">
+        <label class="col-md-6" for="coupon_name_text">Location<em class="red">*</em></label>
+        <div class="col-md-6">
+            <input id="coupon_location_field" type="text" value="{{detail.Location}}" name="location"  required>
+        </div>
+    </div>
+</div><br><br>
+
+<div class="col-md-12">
+    <div class="form-group">
+        <label class="col-md-6" for="coupon_name_text">Mobile Number<em class="red">*</em></label>
+        <div class="col-md-6">
+            <input id="coupon_mobilnumber_field" type="tel"  pattern="[0-9]{10}" value="{{detail.mobilnumber}}" name="mobilenumber" required>
+            <small>Format: 99626****9</small>
+        </div>
+    </div>
+</div><br><br>
+
+<div class="col-md-12">
+    <div class="form-group">
+        <label class="col-md-6" for="coupon_name_text">Language Spoken<em class="red">*</em></label>
+        <div class="col-md-6">
+            <input id="coupon_language_field" type="text" value="{{detail.Languages_Spoken}}" name="language"  required>
+        </div>
+    </div>
+</div><br><br>
+
+<div class="col-md-12" >
+    <div class="form-group">
+        <label class="col-md-6" for="coupon_name_text">About Me<em class="red">*</em></label>
+        <div class="col-md-6">
+            <textarea id="coupon_summary_field"  name="summary"  required>{{detail.Profile_Summary}}</textarea>
+        </div>
+    </div>
+</div><br><br>
+
+<div class="col-md-12">
+    <div class="form-group">
+        <label class="col-md-6" for="coupon_videolink_text">Video Link<em class="red">*</em></label>
+        <div class="col-md-6">
+            <input id="coupon_videolink_field" type="text" value="{{detail.video_link}}" name="videolink" required>
+        </div>
+    </div>
+</div>
+<br><br>
+
+<div class="col-md-12" style="margin: 10px 0 10px 0">
+    <div class="form-group">
+        <label class="col-md-6" for="coupon_name_text">Expertise<em class="red">*</em></label>
+        <div class="col-md-6">
+            <!-- <input id="coupon_expertise_field" type="text" value="{{detail.Expertise}}" readonly> -->
+            <select name="expertise"  required>
+                <option value="{{detail.Expertise}}" class="hidden">{{detail.Expertise}}</option>
+                <option value="ASTROLOGER">ASTROLOGER</option>
+                <option value="LAWER">LAWER</option>
+                <option value="CONSULTANT">CONSULTANT</option>
+                <option value="PSYCHOLOGIST">PSYCHOLOGIST</option>
+                <option value="LIFE COACH">LIFE COACH</option>
+                <option value="COUNSELLOR">COUNSELLOR</option>
+            </select>
+        </div>
+    </div>
+</div><br><br>
+
+<div class="col-md-12">
+    <div class="form-group">
+        <label class="col-md-6" for="coupon_name_text">Fee<em class="red">*</em></label>
+        <div class="col-md-6">
+            <input id="coupon_price_field" type="number" value="{{detail.price}}" placeholder="Minimum Rs.5" name="price" min="10"max='100' required>
+        </div>
+    </div>
+</div><br><br>
+
+<div class="col-md-12">
+    <div class="form-group">
+        <label class="col-md-6" for="coupon_name_text">Speciality in:<em class="red">*</em></label>
+        <div class="col-md-6">
+            <textarea id="coupon_summary_field"  name="summary"  required>{{detail.topic}}</textarea>
+            
+        </div>
+    </div>
+</div><br><br>
+
+<div class="col-md-12">
+    <div class="form-group">
+        <label class="col-md-6" for="coupon_name_text">Degree<em class="red">*</em></label>
+        <div class="col-md-6">
+            <!-- <input id="coupon_degree_field" type="text" value="{{detail.Degree}}" readonly> -->
+            <select name="degree"  required>
+                <option value="{{detail.Degree}}" class="hidden">{{detail.Degree}}</option>
+                <option value="Bachelor">Bachelor</option>
+                <option value="Masters">Masters</option>
+                <option value="Doctorate">Doctorate</option>
+                <option value="Others">Others</option>
+            </select>
+        </div>
+    </div>
+</div><br><br>
+
+<div class="col-md-12">
+    <div class="form-group">
+        <label class="col-md-6" for="coupon_name_text">Session Taken<em class="red">*</em></label>
+        <div class="col-md-6">
+            <input id="coupon_experience_field" type="number" value="{{detail.Session}}" name="session" min="99" max="9999" required>
+        </div>
+    </div>
+</div><br><br>
+
+
+<div class="col-md-12">
+    <div class="form-group">
+        <label class="col-md-6" for="coupon_rating_text">Rating<em class="red">*</em></label>
+        <div class="col-md-6">
+            <input id="coupon_rating_field" type="number" value="{{detail.Rate}}" name="rate" maxlength="1" min='1' max="5" required>
+        </div>
+    </div>
+</div><br><br>
+
+<div class="col-md-12">
+    <div class="form-group">
+        <label class="col-md-6" for="coupon_name_text">Active<em class="red">*</em></label>
+        <div class="col-md-6">
+            <!-- <input id="coupon_degree_field" type="text" value="{{detail.is_active}}" readonly> -->
+            <select name="is_active"  required>
+                <option value="{{detail.is_active}}" class="hidden">{{detail.is_active}}</option>
+                <option value="True">True</option>
+                <option value="False">False</option>
+            </select>
+        </div>
+    </div>
+</div><br><br>
+
+<div class="col-md-12" style="padding-bottom:20px ;">
+    <div class="form-group">
+        <label class="col-md-6" for="coupon_name_text">Block<em class="red">*</em></label>
+        <div class="col-md-6">
+            <!-- <input id="coupon_degree_field" type="text" value="{{detail.is_block}}" readonly> -->
+            <select name="is_block"  required>
+                <option value="{{detail.is_block}}" class="hidden">{{detail.is_block}}</option>
+                <option value="True">True</option>
+                <option value="False">False</option>
+
+            </select>
+        </div>
+    </div>
+</div><br><br>
+
+</div>

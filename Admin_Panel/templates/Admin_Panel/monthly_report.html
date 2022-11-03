@@ -1,0 +1,119 @@
+{% if messg %}
+<script>
+  alert('{{ messg }}');
+</script>
+{% endif %}
+<!DOCTYPE html>
+<style>
+  .deactivate {
+    padding-right: 3px;
+    cursor: pointer;
+    color: grey;
+  }
+
+  .deactivate_active {
+    padding-right: 3px;
+    cursor: pointer;
+    color: black
+  }
+</style>
+<html>
+<title>Monthly Report</title>
+
+<body class="body" style="background-color:#ffffff ; font-size:12px; ">
+  {% include 'Admin_Panel/includes/header.html' %}
+
+  <!-- <div class="card" style="width: 100%"> -->
+  <!-- <img class="card-img-top" src="{{ Admin_Panel.picture.url }}"> -->
+
+
+  <div class="well"
+    style="margin: 0px 20px 30px 20px; border: 14px !important; padding:0px 30 px 10px 30px !important; background-color:#f0f0f0 ">
+
+    <div style="background:#f0f0f0; font-size:large;">Monthly Report</div>
+    <hr style="height:2px;border-width:0;color:black;background-color:gray; margin: 3px 0 12px 0">
+
+    <table id="table2" class="table table-striped" style='padding:5px; border-collapse:collapse; '>
+        <thead style="color:white; text-align:center;">
+          <tr >
+            <th class="card-title ">Name</th>
+            <th class="card-title">Partner Name</th>
+            <th class="card-title">Call Charges</th>
+            <th class="card-title">Topic</th>
+            <th class="card-title">Duration</th>
+            <th class="card-title">Partner Fee</th>
+            <!-- <th class="card-title">End time</th> -->
+            <th class="card-title">Call End Time</th>
+          </tr>
+        </thead>
+        <tbody >
+          {% for detail in detail_list %}
+      
+          <tr>
+            <td class="card-title ">{{detail.from}}</td>
+            <td class="card-title ">{{ detail.to }}</td>
+            <td class="card-title ">{{ detail.callCharges }}</td>
+            <td class="card-title ">{{ detail.topic }}</td>
+            <td class="card-title ">{{ detail.duration }}</td>
+            <td class="card-title ">{{ detail.callPrice }}</td>
+      
+            <!-- <td class="card-title ">{{ detail.end_time}}</td> -->
+            <td class="card-title ">{{ detail.end}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+  </div>
+  <footer
+    style="text-align:center; height:30px; background-color:#0A1C5E; color:white;vertical-align:middle; bottom:0; position:fixed;width:100% ">
+    <span>© All Rights Reserved | Production Dashboard</span>
+  </footer>
+
+
+
+
+  
+  <script>$(document).ready(function () {
+
+
+      $('#table2').DataTable({
+        buttons: [
+          { extend: 'excel', text: 'Download Excel' }
+        ],
+        "scrollY": '100%',
+        "autoWidth": true,
+        "autoHeight": true,
+        sDom: "lBfrtip",
+        "scrollY": '350px',
+
+      });
+
+      $('#list1 li, #list2 li').on('click', function () {
+        $(".dropdown").addClass('hover');
+      });
+
+    });</script>
+
+
+
+
+</body>
+
+</html>
+
+<!-- 
+data_from_django = {{ detail_list}},
+          widget.init(data_from_django),
+            console.log({{detail_list}}) -->
+<!-- 
+            var id = $(this).attr('data-check_active');
+            var color=document.getElementById("deactive").style.color;
+            if(data-check_active== False)
+                  document.getElementById("deactive").style.color = "red";
+            else
+                  document.getElementById("deactive").style.color = "green"; -->
+<!-- data_from_django = {{ detail_list.topic }},
+          widget.init(data_from_django),
+            console.log({{check_active}})
+                  {{detail_list}} -->

@@ -1,0 +1,87 @@
+    <div class="modal-div">
+
+      <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content"
+            style="width: max-content; margin: 0px 20px 0px 20px !important; border: 14px !important ">
+  
+            <div class="modal-header">
+              <h4 class="modal-title">Modal Heading</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+              {{data }}
+              <table id="table2" class="table table-striped" style='padding:5px; border-collapse:collapse'>
+                <thead>
+                  <tr>
+                    <th class="card-title ">Name</th>
+                    <th class="card-title">Partner Name</th>
+                    <th class="card-title">Price</th>
+                    <th class="card-title">Topic</th>
+                    <th class="card-title">Duration</th>
+                    <th class="card-title">Call Charges</th>
+                    <th class="card-title">End time</th>
+                    <th class="card-title">End</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for details in detail_list %}
+                  
+                  <tr>
+                    <td class="card-title " id="1">{{details.from}}</td>
+                    <td class="card-title " id="2">Hello</td>
+                    <td class="card-title " id="3">Hello</td>
+                    <td class="card-title " id="4">Hello</td>
+                    <td class="card-title " id="5">Hello</td>
+                    <td class="card-title " id="6">Hello</td>
+                    <td class="card-title " id="7">Hello</td>
+                    <td class="card-title " id="8">Hello</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+              <!-- <table id="table2" class="table table-striped" style='padding:5px; border-collapse:collapse'> -->
+  
+              <!-- <thead>
+                <tr style="font-size:12px; text-align:center; color:white">
+    
+                  <th class="card-title ">Name</th>
+                  <th class="card-title">Partner Name</th>
+                  <th class="card-title">Price</th>
+                  <th class="card-title">Topic</th>
+                  <th class="card-title">Duration</th>
+                  <th class="card-title">Call Charges</th>
+                  <th class="card-title">End time</th>
+                  <th class="card-title">End</th>
+                </tr>
+              </thead>
+    
+    
+              <tbody>
+                {% for detail in detail_list %}
+                <tr>
+                  <td class="card-title ">{{detail.from}}</td>
+                  <td class="card-title ">{{ detail.to }}</td>
+                  <td class="card-title ">{{ detail.callPrice }}</td>
+                  <td class="card-title ">{{ detail.topic }}</td>
+                  <td class="card-title ">{{ detail.callCharges }}</td>
+                  <td class="card-title ">{{ detail.duration }}</td>
+                  <td class="card-title ">{{ detail.end_time}}</td>
+                  <td class="card-title ">{{ detail.end}}</td>
+    
+                </tr>
+                {% endfor %}
+    
+              </tbody> -->
+              <!-- </table> -->
+  
+  
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

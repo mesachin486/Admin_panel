@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <script src='https://code.jquery.com/jquery-3.5.1.js'></script>
+        <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
+        <link rel="stylesheet" href="//cdn.datatables.net/1.11.1/css/jquery.dataTables.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <!-- <script type="text/javascript" charset="utf8" src="   https://cdn.datatables.net/1.11.1/js/jquery.dataTables.min.js"></script> -->
+        <script type="text/javascript" charset="utf8" src="{% static 'js/datatable.js'%}"></script>
+        <script type="text/javascript" charset="utf8" src="{% static 'js/datatable_button.js'%}"></script>
+        <!-- <script type="text/javascript" charset="utf8"
+          src="https://cdn.datatables.net/buttons/2.0.0/js/dataTables.buttons.min.js"></script> -->
+        <!-- <script type="text/javascript" charset="utf8"
+          src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script> -->
+        <script type="text/javascript" charset="utf8" src="{% static 'js/jszip.js'%}"></script>
+        <!-- <script type="text/javascript" charset="utf8"
+          src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script> -->
+        <!-- <script type="text/javascript" charset="utf8"
+          src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script> -->
+      
+          <script type="text/javascript" charset="utf8"
+          src="{% static 'js/button_html.js'%}"></script>
+        <!-- <script type="text/javascript" charset="utf8"
+          src="https://cdn.datatables.net/buttons/2.0.0/js/buttons.html5.min.js"></script> -->
+        <!-- <script type="text/javascript" charset="utf8"
+          src="https://cdn.datatables.net/buttons/2.0.0/js/buttons.print.min.js"></script> -->
+      
+      </head>
+<body style="background-color:#ffffff ; font-size:12px; ">
+    <div style="">
+        <img src="{% static '/img/logo.png' %}" alt="Logo"
+          style="height:50px; margin:5px; padding:2px;" />
+          <a href="{% url 'logout' %}" class="logout_btn" >Logout</a>
+      </div>
+      <nav style="background-color:#0A1C5E;">
+        <div class="dropdown">
+          <button class="dropbtn" style="margin-right:0px;">Master List</button>
+          <div class="dropdown-content">
+            <ul id="list1">
+              <li><a class="active" href="{% url 'userlist' %}" style="color:#ffffff; text-align:left;">User List</a></li>
+              <li><a class="active" href="{% url 'partnerlist' %}" style="color:#ffffff; text-align:left;">Partner List</a></li>
+              <li><a class="active" href="{% url 'coupons' %}" style="color:#ffffff; text-align:left;">Happiness Codes</a></li>
+            </ul>
+          </div>
+        </div>
+        <!-- <div class="dropdown" style=" border: 6px solid white;"></div> -->
+        <div class="dropdown">
+          <button class="dropbtn" style="margin-left: 0px !important;">Reports</button>
+          <div class="dropdown-content">
+                  <ul id="list2">
+                    <li><a class="active" href="{% url 'missed_call' %}" style="color:#ffffff;text-align:left;">User Missed Call</a></li>
+                    <li><a class="active" href="{% url 'daily_report' %}" style="color:#ffffff;text-align:left;">Daily Report</a></li>
+                    <li><a class="active" href="{% url 'monthly_report' %}" style="color:#ffffff;text-align:left;">Monthly Report</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <br>
+      <br>
+</body>
+</html>
